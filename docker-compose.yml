@@ -1,18 +1,18 @@
 version: '3.9'
 services:
     postgres:
-        image: postgres:13.3
-        container_name: ${DB_CONTAINER_NAME}
         env_file:
             - .env
+        image: postgres:16.2
+        container_name: ${DATABASE_CONTAINER_NAME}
         environment:
-            POSTGRES_DB: ${DATABASE}
-            POSTGRES_USER: ${USER}
-            POSTGRES_PASSWORD: ${PASS}
+            POSTGRES_DB: ${DATABASE_NAME}
+            POSTGRES_USER: ${DATABASE_USER}
+            POSTGRES_PASSWORD: ${DATABASE_PASS}
         volumes:
-            - ${VOLUME_DATA}
+            - ${DATABASE_VOLUME_DATA}
         ports:
-            - ${DB_PORT}:5432
+            - ${DATABASE_PORT}:5432
         restart: unless-stopped
         deploy:
             resources:

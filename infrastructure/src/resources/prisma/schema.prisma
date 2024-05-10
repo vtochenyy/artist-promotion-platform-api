@@ -8,9 +8,16 @@ datasource db {
 }
 
 model User {
-  id           String   @unique @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  login        String   @unique
+  id           String    @unique @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  login        String    @unique
   passwordhash String
-  avaUrl       String?
-  createdAt    DateTime @default(now())
+  name         String
+  surname      String
+  middlename   String?
+  dateOfBirth  DateTime? @db.Date
+  avaUrl       String?   @map("ava_url")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAT    DateTime  @updatedAt @map("updated_at")
+
+  @@map("user")
 }
