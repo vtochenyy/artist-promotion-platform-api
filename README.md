@@ -1,4 +1,4 @@
-# **NESJS-CLEAN-HEXAGONAL**
+# **ARTIST-PROMOTION-PLATFORM-API**
 
  - This repository implements a clean hexagonal architecture on backend framework Nest.js.
  - This repository used a correct DI by ports, not classes.
